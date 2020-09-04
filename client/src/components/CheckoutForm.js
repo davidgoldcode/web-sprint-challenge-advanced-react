@@ -31,9 +31,10 @@ const CheckoutForm = (props) => {
     <>
       <form onSubmit={handleSubmit}>
         <h2>Checkout Form</h2>
-        <label>
+        <label htmlFor='First Name'>
           First Name:
           <input
+            id='First Name'
             name="firstName"
             value={values.firstName}
             onChange={handleChanges}
