@@ -10,6 +10,24 @@ export default class PlantList extends Component {
     }
   }
 
+  componentDidMount() {
+    console.log('did mount')
+    axios
+      .get('http://localhost:3333/plants')
+      .then(res => {
+        debugger
+        this.setState({
+          plants: res.data.plantsData, 
+        })
+      })
+      .catch(err => {
+        console.log('error!', err);
+      })
+      .finally(res => {
+        console.log(this.state.plants)
+      })
+  }
+
   // when the component mounts:
   //   - fetch data from the server endpoint - http://localhost:3333/plants
   //   - set the returned plants array to this.state.plants
